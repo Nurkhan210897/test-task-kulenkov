@@ -5,11 +5,17 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import BaseButton from '../components/base/BaseButton.vue'
 import BaseCard from '../components/base/BaseCard.vue'
-export default {
-  components: { BaseButton, BaseCard }
-}
+export default defineComponent({
+  components: { BaseButton, BaseCard },
+
+  setup(){
+    const posts
+  }
+
+})
 </script>
 
 <style></style>
