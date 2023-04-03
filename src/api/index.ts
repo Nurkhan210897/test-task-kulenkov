@@ -1,5 +1,5 @@
-import type { IGetPostsParams, IPosts, INewPost } from '@/types/gTypes'
 import axios from 'axios'
+import type { IGetPostsParams, IPosts, INewPost } from '@/types/gTypes'
 import type { AxiosResponse } from 'axios'
 
 const url = 'https://jsonplaceholder.typicode.com/posts'
