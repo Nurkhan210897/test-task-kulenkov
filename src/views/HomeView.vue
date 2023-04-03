@@ -18,7 +18,7 @@
         <v-col md="4" v-for="(post, index) in filteredPosts" :key="index" class="pa-3">
           <baseCard
             :card="post"
-            @openEditModal="openEditModal(post)"
+            @openModal="openEditModal(post)"
             @deleteCard="deleteCard"
           ></baseCard>
         </v-col>
