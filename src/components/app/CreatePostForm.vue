@@ -17,12 +17,12 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import type { IPosts, NewPost } from '../../types/gTypes'
+import type { INewPost, IPosts } from '../../types/gTypes'
 import Http from '@/api/index'
 
 export default defineComponent({
   setup(_, { emit }) {
-    const post = reactive<NewPost>({
+    const post = reactive<INewPost>({
       title: '',
       body: '',
       userId: 1
@@ -33,7 +33,7 @@ export default defineComponent({
     const createPost = async () => {
       try {
         if (post.title.length) {
-          const newPost = await Http.post<IPosts>(post)
+          const newPost = await Http.post<IPosts, INewPost>(post)
           emit('createPost', newPost)
         }
       } catch (error) {

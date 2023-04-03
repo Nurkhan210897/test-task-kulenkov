@@ -39,7 +39,7 @@
 import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 import Http from '@/api/index'
 // type imports
-import type { IPosts, ISortItem } from '../types/gTypes'
+import type { IPosts, ISortItem, IGetPostsParams } from '../types/gTypes'
 // components
 import BaseCard from '../components/base/BaseCard.vue'
 import BaseEditModal from '../components/base/BaseEditModal.vue'
@@ -78,7 +78,7 @@ export default defineComponent({
       }
       isPostsLoading.value = true
       try {
-        posts.value = await Http.get<IPosts[]>(params)
+        posts.value = await Http.get<IPosts[], IGetPostsParams>(params)
       } catch (error) {
         toast.error(error)
       } finally {
@@ -102,7 +102,7 @@ export default defineComponent({
 
     const saveChangedData = async (data: IPosts) => {
       try {
-        const updatedPost = await Http.put<IPosts>(data)
+        const updatedPost = await Http.put<IPosts, IPosts>(data)
         updatePosts(updatedPost)
       } catch (error) {
         toast.error(error)

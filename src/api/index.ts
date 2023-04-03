@@ -4,11 +4,11 @@ import type { AxiosResponse } from 'axios'
 
 const url = 'https://jsonplaceholder.typicode.com/posts'
 export default class Http {
-  static get<T>(params: IGetPostsParams) {
+  static get<T, P>(params: P) {
     return axios.get(url, { params }).then((response: AxiosResponse<T>) => response.data)
   }
 
-  static put<T>(params: IPosts) {
+  static put<T, P>(params: P) {
     return axios
       .put(`${url}/${params.id}`, params)
       .then((response: AxiosResponse<T>) => response.data)
@@ -18,7 +18,7 @@ export default class Http {
     return axios.delete(`${url}/${id}`).then((response: AxiosResponse<T>) => response.data)
   }
 
-  static post<T>(params: INewPost) {
+  static post<T, P>(params: P) {
     return axios.post(`${url}`, params).then((response: AxiosResponse<T>) => response.data)
   }
 }
