@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import type { NewPost } from '../../types/gTypes'
+import type { IPosts, NewPost } from '../../types/gTypes'
 import Http from '@/api/index'
 
 export default defineComponent({
@@ -33,7 +33,7 @@ export default defineComponent({
     const createPost = async () => {
       try {
         if (post.title.length) {
-          const newPost = await Http.post(post)
+          const newPost = await Http.post<IPosts>(post)
           emit('createPost', newPost)
         }
       } catch (error) {

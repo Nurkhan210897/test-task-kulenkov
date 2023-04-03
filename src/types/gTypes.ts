@@ -10,4 +10,9 @@ export interface IGetPostsParams {
   _limit: number
 }
 
-export type NewPost = Pick<IPosts, 'title' | 'body' | 'userId'>
+export type INewPost = Pick<IPosts, 'title' | 'body' | 'userId'>
+
+export interface ISortItem {
+  name: string
+  sort: number
+}

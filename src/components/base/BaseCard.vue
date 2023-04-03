@@ -4,6 +4,7 @@
       <v-btn class="card-remove_btn" icon plain @click="deleteCard">
         <v-icon icon="mdi-delete"></v-icon>
       </v-btn>
+      <v-card-title>{{ card.id }}</v-card-title>
       <v-card-title>{{ card.title }}</v-card-title>
       <v-card-text>{{ card.body }}</v-card-text>
       <v-card-actions>
@@ -37,13 +38,12 @@ export default defineComponent({
       emit('openModal', initialCardData)
     }
 
-    const deleteCard = async() => {
+    const deleteCard = async () => {
       try {
-        await Http.delete(initialCardData.value.id)
+        await Http.delete(initialCardData.value?.id as number)
         emit('deleteCard', props.card)
       } catch (error) {
-        console.log(error);
-        
+        console.log(error)
       }
     }
 
