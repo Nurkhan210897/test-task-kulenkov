@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <BostSortingSelect @onChange="sortPosts" />
+    <BaseSortingSelect @onChange="sortPosts" />
     <BaseFilterInput v-model="cardId" />
 
     <CreatePostForm @createPost="createPost" class="mb-12" />
@@ -45,12 +45,12 @@ import BaseCard from '../components/base/BaseCard.vue'
 import BaseEditModal from '../components/base/BaseEditModal.vue'
 import CreatePostForm from '../components/app/CreatePostForm.vue'
 import BaseFilterInput from '../components/base/BaseFilterInput.vue'
-import BostSortingSelect from '../components/base/BostSortingSelect.vue'
+import BaseSortingSelect from '../components/base/BaseSortingSelect.vue'
 // plugins
 import { useToast } from 'vue-toastification'
 
 export default defineComponent({
-  components: { BaseCard, BaseEditModal, CreatePostForm, BaseFilterInput, BostSortingSelect },
+  components: { BaseCard, BaseEditModal, CreatePostForm, BaseFilterInput, BaseSortingSelect },
 
   setup() {
     const posts = ref<IPosts[]>([])
